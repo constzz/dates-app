@@ -1,0 +1,13 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Valdi hotreload test_valdi",
+      "type": "shell",
+      "command": "valdi",
+      "args": ["hotreload", "--target", "//modules/test_valdi:test_valdi_hotreload"],
+      "isBackground": true,
+      "problemMatcher": []
+    }
+  ]
+}

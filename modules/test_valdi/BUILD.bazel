@@ -1,0 +1,24 @@
+load("@build_bazel_rules_apple//apple:ios.bzl", "ios_application")
+load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
+
+swift_library(
+    name = "DatesAppLib",
+    srcs = glob([
+        "DatesApp/**/*.swift",
+    ]),
+    module_name = "DatesApp",
+    visibility = ["//visibility:private"],
+)
+
+ios_application(
+    name = "DatesApp",
+    bundle_id = "com.dates.app",
+    families = [
+        "iphone",
+        "ipad",
+    ],
+    infoplists = [":Info.plist"],
+    minimum_os_version = "15.0",
+    deps = [":DatesAppLib"],
+    visibility = ["//visibility:public"],
+)

@@ -1,0 +1,11 @@
+# Bazel configuration for iOS SwiftUI app
+common --enable_platform_specific_config
+
+# iOS configuration
+build --ios_minimum_os=15.0
+
+# Optimize for macOS builds
+build:macos --spawn_strategy=local
+
+# Standard settings
+build --incompatible_enable_cc_toolchain_resolution

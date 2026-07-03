@@ -1,0 +1,7 @@
+# Root BUILD file - delegates to modules/test_valdi
+
+alias(
+    name = "DatesApp",
+    actual = "//modules/test_valdi:DatesApp",
+    visibility = ["//visibility:public"],
+)
