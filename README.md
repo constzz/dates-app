@@ -1,7 +1,18 @@
-# dates_mvp
-Dates MVP app built with Valdi open source
+# Dates App 💕
 
-## Usage
+A couple's date planning app with AI-powered suggestions, pairing features, and calendar integration.
+
+**Repository**: https://github.com/constzz/dates-app  
+**Railway**: https://railway.com/project/008623f9-fab9-4dbe-befe-6ba07599e752
+
+## Stack
+
+- **Backend**: Go 1.26, PostgreSQL, JWT auth
+- **Frontend**: Valdi (iOS), Swift  
+- **Build**: Bazel
+- **Deployment**: Railway + GitHub Actions
+
+## Quick Start
 
 All commands requires `valdi` to be available on PATH.
 
