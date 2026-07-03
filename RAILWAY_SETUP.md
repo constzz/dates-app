@@ -1,55 +1,45 @@
 # Railway Setup - Quick Start
 
-Project created: https://railway.com/project/008623f9-fab9-4dbe-befe-6ba07599e752
+**GitHub Repository**: https://github.com/constzz/dates-app
+**Railway Project**: https://railway.com/project/008623f9-fab9-4dbe-befe-6ba07599e752
 
 ## Current Status
 ✓ Project created: `dates-app`
 ✓ PostgreSQL database added
+✓ Code pushed to GitHub
 ✗ Backend service (needs GitHub integration)
 
 ## Next Steps
 
-### 1. Push Code to GitHub
-```bash
-cd /Users/kostia/my_project
-git add .
-git commit -m "Add Railway deployment config"
-git push origin main
-```
+### 1. Add Backend Service via GitHub Integration
 
-### 2. Add Backend Service via Dashboard
-
-1. Open: https://railway.com/project/008623f9-fab9-4dbe-befe-6ba07599e752
+1. Open Railway: https://railway.com/project/008623f9-fab9-4dbe-befe-6ba07599e752
 
 2. Click **"+ New"** → **"GitHub Repo"**
 
-3. Connect your GitHub account if needed
+3. Select **constzz/dates-app**
 
-4. Select your repository
+4. **Important**: Set **Root Directory** to `backend`
 
-5. **Important**: Set **Root Directory** to `backend`
-
-6. Railway will:
-   - Detect `Dockerfile`
+5. Railway will automatically:
+   - Detect Dockerfile
    - Build the image
-   - Deploy automatically
+   - Deploy
 
-7. Click **"Deploy"**
-
-### 3. Configure Environment Variables
+### 2. Configure Environment Variables
 
 In the backend service settings:
 
 ```
 PORT=8080
-JWT_SECRET=<run: openssl rand -base64 32>
+JWT_SECRET=8y+lfqS+puAxrNaQBUopixfpPj1PNmWRdTXlIaiyVbA=
 DATABASE_URL=${{Postgres.DATABASE_URL}}
 APP_ENV=production
 ```
 
 **Note**: `DATABASE_URL` reference connects to Postgres automatically.
 
-### 4. Run Database Migrations
+### 3. Run Database Migrations
 
 After first deployment:
 
@@ -58,19 +48,22 @@ After first deployment:
 ~/.npm-global/bin/railway run psql $DATABASE_URL -f backend/migrations/000001_auth_schema.up.sql
 ```
 
-### 5. Generate Railway Token for GitHub Actions
+### 4. Generate Railway Token for GitHub Actions
 
 ```bash
 ~/.npm-global/bin/railway tokens
 ```
 
 Add to GitHub repo secrets:
-- Settings → Secrets → Actions
+- Go to: https://github.com/constzz/dates-app/settings/secrets/actions
 - New secret: `RAILWAY_TOKEN` = <your-token>
 
-### 6. Enable Auto-Deploy
+### 5. Auto-Deploy is Ready! ✓
 
-Push to `main` branch → GitHub Actions → Tests → Build → Deploy to Railway
+Pushes to `main` branch will automatically:
+- Run tests via GitHub Actions
+- Build Docker image
+- Deploy to Railway
 
 ## Test Deployment
 
